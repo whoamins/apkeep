@@ -168,7 +168,7 @@ pub async fn list_versions(apps: Vec<(String, Option<String>)>) {
                     }
                     let mut versions = versions.drain().collect::<Vec<String>>();
                     versions.sort();
-                    println!("| {}", versions.join(", "));
+                    // println!("| {}", versions.join(", "));
                 }
                 _ => {
                     println!("| Invalid app response for {}. Skipping...", app_id);
@@ -201,7 +201,7 @@ pub async fn list_versions_for_one_app(app: &String) -> Vec<String> {
                 }
                 let mut versions = versions.drain().collect::<Vec<String>>();
                 versions.sort();
-                println!("| {}", versions.join(", "));
+                // println!("| {}", versions.join(", "));
                 versions
             }
             _ => {
