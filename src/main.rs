@@ -135,6 +135,7 @@ mod apkpure;
 mod fdroid;
 mod google_play;
 mod huawei_app_gallery;
+mod extract;
 
 type CSVList = Vec<(String, Option<String>)>;
 fn fetch_csv_list(csv: &str, field: usize, version_field: Option<usize>) -> Result<CSVList, Box<dyn Error>> {
@@ -190,6 +191,7 @@ fn load_config(ini_file: Option<PathBuf>) -> Result<Ini, Box<dyn Error>> {
 
 #[tokio::main]
 async fn main() {
+    // extract::extract_apk("/Users/whoamins/IdeaProjects/apkeep/target/debug/out/");
     let usage = {
         cli::app().render_usage()
     };
@@ -240,12 +242,16 @@ async fn main() {
             if let Some(true) = matches.get_one::<bool>("all") {
                 let versions = apkpure::list_versions_for_one_app(&app_id).await;
 
-                let app_versions = dbg!(versions
+                let app_versions = versions
                     .into_iter()
                     .map(|s| (app_id.to_owned(), Some(s)))
-                    .collect::<Vec<(String, Option<String>)>>());
+                    .collect::<Vec<(String, Option<String>)>>();
 
                 apkpure::download_apps(app_versions, parallel, sleep_duration, &outpath).await;
+
+                if let Some(true) = matches.get_one::<bool>("extract") {
+                    extract::extract_apk(outpath.as_os_str().to_str().unwrap());
+                }
 
                 vec![(app_id, app_version)]
             } else {

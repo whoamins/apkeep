@@ -31,7 +31,9 @@ Options:
   -r, --parallel <parallel>
           The number of parallel APK fetches to run at a time [default: 4]
       --all
-          Downloads all versions
+          Download all versions
+      --extract
+          Use apktool to decode APK files
   -h, --help
           Print help information
   -V, --version

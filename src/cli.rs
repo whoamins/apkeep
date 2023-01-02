@@ -138,11 +138,18 @@ pub fn app() -> Command {
                 .required(false),
         ).arg(
         Arg::new("all")
-            .help("Downloads all versions")
+            .help("Download all versions")
             .long("all")
             .action(ArgAction::SetTrue)
             .required(false)
     )
+        .arg(
+            Arg::new("extract")
+                .help("Use apktool to decode APK files")
+                .long("extract")
+                .action(ArgAction::SetTrue)
+                .required(false)
+        )
         .arg(
             Arg::new("OUTPATH")
                 .help("Path to store output files")

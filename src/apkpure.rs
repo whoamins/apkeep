@@ -1,6 +1,7 @@
 use std::collections::HashSet;
 use std::ops::Deref;
 use std::path::Path;
+use std::process::exit;
 use std::rc::Rc;
 
 use futures_util::StreamExt;
@@ -51,8 +52,8 @@ pub async fn download_apps(
                         format!("{}@{}", app_id, version)
                     },
                     None => {
-                        mp_log.println(format!("Downloading {}...", app_id)).unwrap();
-                        app_id.to_string()
+                        mp_log.println(format!("Done!")).unwrap();
+                        exit(0);
                     },
                 };
                 if sleep_duration > 0 {
