@@ -1,7 +1,5 @@
 use std::fs;
-use std::path::Path;
-use std::thread::sleep;
-use std::process::{Command, Output};
+use std::process::Command;
 
 pub fn extract_apk(path: &str) {
     let mut all_apk_files = Vec::new();
@@ -15,10 +13,21 @@ pub fn extract_apk(path: &str) {
     }
 
     for apk_file in all_apk_files {
-        // println!("\n{}\n", apk_file);
+        let mut folder_name: &str = ".";
+
+        if apk_file.ends_with("xapk") {
+            folder_name = apk_file.split(".xapk").collect::<Vec<_>>()[0];
+        } else if apk_file.ends_with("apk") {
+            folder_name = apk_file.split(".apk").collect::<Vec<_>>()[0];
+        }
+
+        // TODO: XAPK Extraction
+
         let mut file = Command::new("apktool")
             .arg("d")
-            .arg(apk_file)
+            .arg(apk_file.clone())
+            .arg("-o")
+            .arg(folder_name)
             .spawn()
             .expect("apktool command failed to start",);
 
