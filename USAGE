@@ -29,7 +29,7 @@ Options:
   -s, --sleep-duration <sleep_duration>
           Sleep duration (in ms) before download requests [default: 0]
   -r, --parallel <parallel>
-          The number of parallel APK fetches to run at a time [default: 4]
+          The number of parallel APK fetches to run at a time [default: 5]
       --all
           Download all versions
       --extract

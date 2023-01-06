@@ -134,7 +134,7 @@ pub fn app() -> Command {
                 .long("parallel")
                 .action(ArgAction::Set)
                 .value_parser(value_parser!(usize))
-                .default_value("4")
+                .default_value("5")
                 .required(false),
         ).arg(
         Arg::new("all")
