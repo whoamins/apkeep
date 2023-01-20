@@ -6,6 +6,11 @@
 
 ![apkeep logo](logo.png)
 
+## Fork Features
+- Download all available versions via apkpure
+- Extract (X)APK using [apktool](https://ibotpeaches.github.io/Apktool/)
+
+
 ## Installation
 
 Precompiled binaries for `apkeep` on various platforms can be downloaded
