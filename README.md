@@ -20,13 +20,13 @@ To install from `crates.io`, simply [install rust](https://www.rust-lang.org/too
 run
 
 ```shell
-cargo install apkeep
+cargo build
 ```
 
 Or to install from the latest commit in our repository, run
 
 ```shell
-cargo install --git https://github.com/EFForg/apkeep.git
+cargo install --git https://github.com/whoamins/apkeep.git
 ```
 
 If using on an Android platform, [`termux`](https://termux.org/) must be installed first.  Upgrade to the latest packages with `pkg update`, then install the `apkeep` precompiled binary as described above or run `pkg install apkeep` to install from the `termux` repository.
@@ -86,6 +86,18 @@ Or, to list what versions are available, use `-l`:
 
 ```shell
 apkeep -l -a org.mozilla.fennec_fdroid -d f-droid
+```
+
+To download all available versions, use `--all`:
+
+```shell
+apkeep -a com.instagram.android --all
+```
+
+To extract APK using `apktool`, use `--extract`:
+
+```shell
+apkeep -a com.instagram.android --extract
 ```
 
 Refer to [`USAGE`](https://github.com/EFForg/apkeep/blob/master/USAGE) to download multiple
