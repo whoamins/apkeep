@@ -100,7 +100,7 @@ To extract APK using `apktool`, use `--extract`:
 apkeep -a com.instagram.android --extract
 ```
 
-Refer to [`USAGE`](https://github.com/EFForg/apkeep/blob/master/USAGE) to download multiple
+Refer to [`USAGE`](https://github.com/whoamins/apkeep/blob/master/USAGE) to download multiple
 APKs in a single run.
 
 All the above examples can also be used in Docker with minimal changes. For example, to
