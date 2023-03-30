@@ -322,6 +322,11 @@ async fn main() {
         match download_source {
             DownloadSource::APKPure => {
                 apkpure::download_apps(list, parallel, sleep_duration, &outpath).await;
+
+                if let Some(true) = matches.get_one::<bool>("extract") {
+                    extract::extract_apk(outpath.as_os_str().to_str().unwrap());
+                }
+
             }
             DownloadSource::GooglePlay => {
                 let mut username = matches.get_one::<String>("google_username").map(|v| v.to_string());
